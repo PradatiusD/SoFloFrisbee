@@ -6,7 +6,7 @@ Application that streamlines and unifies all the South Florida frisbee data so t
 
 Project will be hosted on Heroku
 
-# [![MEAN Logo](http://www.mean.io/img/logos/meanlogo.png)](http://mean.io/) MEAN Stack
+# [MEAN.io](http://mean.io/) Stack Information
 
 [![Build Status](https://travis-ci.org/linnovate/mean.png?branch=master)](https://travis-ci.org/linnovate/mean)
 [![Dependencies Status](https://david-dm.org/linnovate/mean.png)](https://david-dm.org/linnovate/mean)
@@ -22,10 +22,10 @@ MEAN is a boilerplate that provides a nice starting point for [MongoDB](http://w
 * Bower - Web package manager. Installing [Bower](http://bower.io/) is simple when you have `npm`:
 
 ```
-$ npm install -g bower
+$ npm install -g bowerg
 ```
 
-### Optional [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+### Optional [adding Grunt](http://gruntjs.com/)
 * Grunt - Download and Install [Grunt](http://gruntjs.com).
 ```
 $ npm install -g grunt-cli
@@ -164,28 +164,3 @@ We pre-included an article example. Check out:
   * [The AngularJs Service](packages/articles/public/services/articles.js) - Where we connect to our REST service.
   * [The AngularJs Controller](packages/articles/public/controllers/articles.js) - Where we take care of  our frontend logic.
   * [The AngularJs Views Folder](packages/articles/public/views) - Where we keep our CRUD views.
-
-## Heroku Quick Deployment
-Before you start make sure you have the [Heroku toolbelt](https://toolbelt.heroku.com/)
-installed and an accessible MongoDB instance - you can try [MongoHQ](http://www.mongohq.com/)
-which has an easy setup).
-
-Add the db string to the production env in server/config/env/production.js.
-
-```
-git init
-git add .
-git commit -m "initial version"
-heroku apps:create
-heroku config:add NODE_ENV=production
-heroku config:add BUILDPACK_URL=https://github.com/mbuchetics/heroku-buildpack-nodejs-grunt.git
-git push heroku master
-heroku config:set NODE_ENV=production
-```
-
-## More Information
-  * Visit us at [Linnovate.net](http://www.linnovate.net/).
-  * Visit our [Ninja's Zone](http://www.meanleanstartupmachine.com/) for extended support.
-
-## License
-[The MIT License](http://opensource.org/licenses/MIT)

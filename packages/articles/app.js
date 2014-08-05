@@ -3,36 +3,38 @@
 /*
  * Defining the Package
  */
-var Module = require('meanio').Module;
 
-var Articles = new Module('articles');
+// var Module = require('meanio').Module;
+
+// var Articles = new Module('articles');
 
 /*
  * All MEAN packages require registration
  * Dependency injection is used to define required modules
  */
-Articles.register(function(app, auth, database) {
+
+// Articles.register(function(app, auth, database) {
 
   //We enable routing. By default the Package Object is passed to the routes
-  Articles.routes(app, auth, database);
+  // Articles.routes(app, auth, database);
 
   //We are adding a link to the main menu for all authenticated users
-  Articles.menus.add({
-    'roles': ['authenticated'],
-    'title': 'Articles',
-    'link': 'all articles'
-  });
-  Articles.menus.add({
-    'roles': ['authenticated'],
-    'title': 'Create New Article',
-    'link': 'create article'
-  });
+  // Articles.menus.add({
+  //   'roles': ['authenticated'],
+  //   'title': 'Articles',
+  //   'link': 'all articles'
+  // });
+  // Articles.menus.add({
+  //   'roles': ['authenticated'],
+  //   'title': 'Create New Article',
+  //   'link': 'create article'
+  // });
 
   //Articles.aggregateAsset('js','/packages/system/public/services/menus.js',{group:'footer',absolute:true, weight:-9999});
-  Articles.aggregateAsset('js', 'test.js', {
-    group: 'footer',
-    weight: -1
-  });
+  // Articles.aggregateAsset('js', 'test.js', {
+  //   group: 'footer',
+  //   weight: -1
+  // });
 
 
   /*
@@ -52,7 +54,7 @@ Articles.register(function(app, auth, database) {
       //you now have the settings object
     });
     */
-  Articles.aggregateAsset('css', 'articles.css');
+//   Articles.aggregateAsset('css', 'articles.css');
 
-  return Articles;
-});
+//   return Articles;
+// });
