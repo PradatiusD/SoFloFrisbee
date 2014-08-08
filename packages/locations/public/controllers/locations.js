@@ -66,7 +66,7 @@ angular.module('mean.locations').controller('LocationsController', ['$scope', '$
 
     $scope.findOne = function() {
       Locations.get({
-        articleId: $stateParams.locationId
+        locationId: $stateParams.locationId
       }, function(location) {
         $scope.location = location;
       });

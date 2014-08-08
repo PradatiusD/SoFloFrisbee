@@ -1,7 +1,7 @@
 <section data-ng-controller="LocationsController" data-ng-init="findOne()">
   <span>{{location.created | date:'medium'}}</span> /
   <span>{{location.user.name}}</span>
-  <h2>{{location.title}}</h2>
+  <h2>{{location.name}}</h2>
   <div data-ng-if="hasAuthorization(location)">
     <a class="btn" href="/#!/locations/{{location._id}}/edit">
       <i class="glyphicon glyphicon-edit"></i>
@@ -10,5 +10,5 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
-  <div>{{location.content}}</div>
+  <div>{{location.address}}</div>
 </section>

@@ -29,12 +29,11 @@ exports.create = function(req, res) {
 
   location.save(function(err) {
     if (err) {
-      return res.json(500, {
+      return res.status(500).json({
         error: 'Cannot save the location'
       });
     }
     res.json(location);
-
   });
 };
 
@@ -92,6 +91,5 @@ exports.all = function(req, res) {
       });
     }
     res.json(locations);
-
   });
 };
