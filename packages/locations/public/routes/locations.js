@@ -45,10 +45,7 @@ angular.module('mean.locations').config(['$stateProvider',
       })
       .state('location by id', {
         url: '/locations/:locationId',
-        templateUrl: 'locations/views/view.html',
-        resolve: {
-          loggedin: checkLoggedin
-        }
+        templateUrl: 'locations/views/view.html'
       });
   }
 ]);

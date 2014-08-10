@@ -67,6 +67,13 @@ module.exports = function(grunt) {
         files: '<%= assets.core.css %>'
       }
     },
+    less: {
+      development: {
+        files: {
+          'packages/system/public/assets/css/soflo.css':'packages/system/public/assets/less/soflo.less'
+        }
+      }
+    },
     nodemon: {
       dev: {
         script: 'server.js',
@@ -117,7 +124,7 @@ module.exports = function(grunt) {
   if (process.env.NODE_ENV === 'production') {
     grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'concurrent']);
   } else {
-    grunt.registerTask('default', ['clean', 'jshint', 'csslint', 'concurrent']);
+    grunt.registerTask('default', ['clean', 'jshint', 'concurrent']);
   }
 
   //Test task.
