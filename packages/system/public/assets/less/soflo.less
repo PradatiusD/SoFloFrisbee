@@ -1,7 +1,21 @@
+// My variables
 @b_path: "bower_components/bootstrap/less/";
+@Montserrat: 'Montserrat', sans-serif;
+@purple: #642F64;
+
 
 // Core variables and mixins
 @import "@{b_path}variables.less";
+
+@font-family-sans-serif: "Open Sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+@headings-font-family: @Montserrat;
+@link-color: @purple;
+@btn-primary-bg: @purple;
+
+@navbar-default-bg: @purple;
+@navbar-default-link-color: #EBE7E7;
+@navbar-default-link-hover-color: white;
+
 @import "@{b_path}mixins.less";
 
 // Reset
@@ -52,4 +66,8 @@
 
 body { 
     padding-top: 65px; 
+}
+
+.nav > li > a {
+    font-family: @Montserrat;
 }

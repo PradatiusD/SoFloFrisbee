@@ -33,8 +33,8 @@ module.exports = function(grunt) {
         }
       },
       css: {
-        files: paths.css,
-        tasks: ['csslint'],
+        files: ['packages/public/system/assets/less/soflo.less'],
+        tasks: ['less'],
         options: {
           livereload: true
         }
@@ -124,7 +124,7 @@ module.exports = function(grunt) {
   if (process.env.NODE_ENV === 'production') {
     grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'concurrent']);
   } else {
-    grunt.registerTask('default', ['clean', 'jshint', 'concurrent']);
+    grunt.registerTask('default', ['clean', 'jshint', 'less', 'concurrent']);
   }
 
   //Test task.
