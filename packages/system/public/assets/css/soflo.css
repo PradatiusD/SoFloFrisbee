@@ -5778,3 +5778,6 @@ body {
 .nav > li > a {
   font-family: 'Montserrat', sans-serif;
 }
+.fa {
+  color: #642f64;
+}

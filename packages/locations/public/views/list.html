@@ -1,20 +1,20 @@
 <section data-ng-controller="LocationsController" data-ng-init="find()">
-  <ul class="locations unstyled">
+  <h1>Current Pickup Groups</h1>
+  <hr>
+  <ul class="locations list-unstyled">
     <li data-ng-repeat="location in location">
-      <span>{{location.created | date:'medium'}}</span> /
-      <span>{{location.user.name}}</span>
-      <h2>
+      <h3>
         <a data-ng-href="#!/locations/{{location._id}}">{{location.name}}</a>
         <span data-ng-if="hasAuthorization(location)">
           <a class="btn" href="/#!/locations/{{location._id}}/edit">
-            <i class="glyphicon glyphicon-edit"></i>
+            <i class="fa fa-edit fa-lg"></i>
           </a>
           <a class="btn" data-ng-click="remove(location);">
-            <i class="glyphicon glyphicon-trash"></i>
+            <i class="fa fa-trash-o fa-lg"></i>
           </a>
         </span>
-      </h2>
-      <div>{{location.address}}</div>
+      </h3>
+      <p class="lead">{{location.address}}</p>
     </li>
   </ul>
   <h1 data-ng-hide="!locations || locations.length">No locations yet. <br> Why don't you <a href="/#!/locations/create">Create One</a>?</h1>

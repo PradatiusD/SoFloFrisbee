@@ -1,5 +1,8 @@
 <section data-ng-controller="LocationsController">
   <form name="locationForm" class="form-horizontal col-md-6" role="form" data-ng-submit="create(locationForm.$valid)" novalidate>
+
+    <!-- Name of Organization -->
+
     <div class="form-group" ng-class="{ 'has-error' : submitted && locationForm.name.$invalid }">
       <label mean-token="'create-name'" class="col-md-3 control-label">Title</label>
       <div class="col-md-9">
@@ -8,20 +11,34 @@
           <p ng-show="locationForm.name.$error.required">Name is required</p>
         </div>
       </div>
-
     </div>
+
+    <!-- Address of Location -->
+
     <div class="form-group" ng-class="{ 'has-error' : submitted && locationForm.address.$invalid }">
-      <label mean-token="'create-address'" for="address" class="col-md-3 control-label">Content</label>
+      <label mean-token="'create-address'" for="address" class="col-md-3 control-label">Address</label>
       <div class="col-md-9">
-        <textarea name="address" data-ng-model="address" id="address" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
+        <textarea name="address" data-ng-model="address" id="address" cols="30" rows="10" placeholder="3801 S Pine Island Rd,  Davie, FL 33328" class="form-control" required></textarea>
         <div ng-show="submitted && locationForm.address.$invalid" class="help-block">
           <p ng-show="locationForm.address.$error.required">Address is required</p>
         </div>
       </div>
     </div>
+
+    <!-- Facebook ID of location -->
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && locationForm.facebookID.$invalid }">
+      <label mean-token="'create-facebookID'" class="col-md-3 control-label">Facebook ID</label>
+      <div class="col-md-9">
+        <input name="facebookID" type="text" class="form-control" data-ng-model="facebookID" id="facebookID" placeholder="145831921439072">
+      </div>
+    </div>
+
+    <!-- Submit -->
+
     <div class="form-group">
       <div class="col-md-offset-3 col-md-9">
-        <button type="submit" class="btn btn-info">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </form>

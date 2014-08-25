@@ -3,7 +3,8 @@
 var paths = {
   js: ['*.js', 'test/**/*.js', '!test/coverage/**', '!bower_components/**', 'packages/**/*.js', '!packages/**/node_modules/**'],
   html: ['packages/**/public/**/views/**', 'packages/**/server/views/**'],
-  css: ['!bower_components/**', 'packages/**/public/**/css/*.css']
+  css: ['!bower_components/**', 'packages/**/public/**/css/*.css'],
+  less: ['packages/system/public/assets/less/soflo.less']
 };
 
 module.exports = function(grunt) {
@@ -32,12 +33,16 @@ module.exports = function(grunt) {
           interval: 500
         }
       },
-      css: {
-        files: ['packages/public/system/assets/less/soflo.less'],
+      less: {
+        files: paths.less,
         tasks: ['less'],
         options: {
           livereload: true
         }
+      },
+      testScripts: {
+        files: 'test/facebook.js',
+        tasks: ['shell']
       }
     },
     jshint: {
@@ -114,6 +119,14 @@ module.exports = function(grunt) {
       unit: {
         configFile: 'karma.conf.js'
       }
+    },
+    shell: {
+      testScripts: {
+        options: {
+          stderr: false
+        },
+        command: 'node test/facebook.js'
+      }
     }
   });
 
@@ -124,11 +137,13 @@ module.exports = function(grunt) {
   if (process.env.NODE_ENV === 'production') {
     grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'concurrent']);
   } else {
-    grunt.registerTask('default', ['clean', 'jshint', 'less', 'concurrent']);
+    grunt.registerTask('default', ['clean', 'jshint', 'concurrent']);
   }
 
   //Test task.
   grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+  grunt.registerTask('testScripts', ['watch:testScripts']);
+
 
   // For Heroku users only.
   // Docs: https://github.com/linnovate/mean/wiki/Deploying-on-Heroku

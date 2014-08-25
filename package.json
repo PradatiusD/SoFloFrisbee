@@ -82,6 +82,7 @@
     "requirejs": "^2.1.11",
     "should": "3.3.1",
     "supertest": "0.11.0",
-    "grunt-contrib-less": "~0.11.4"
+    "grunt-contrib-less": "~0.11.4",
+    "grunt-shell": "~1.0.1"
   }
 }

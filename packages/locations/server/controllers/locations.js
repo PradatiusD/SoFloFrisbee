@@ -3,10 +3,10 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-  Location = mongoose.model('Location'),
-  _ = require('lodash');
 
+var mongoose = require('mongoose');
+var Location = mongoose.model('Location');
+var _        = require('lodash');
 
 /**
  * Find location by id
@@ -14,9 +14,10 @@ var mongoose = require('mongoose'),
 exports.location = function(req, res, next, id) {
   Location.load(id, function(err, location) {
     if (err) return next(err);
+
     if (!location) return next(new Error('Failed to load location ' + id));
     req.location = location;
-    next();
+    next();      
   });
 };
 
@@ -81,7 +82,7 @@ exports.show = function(req, res) {
 };
 
 /**
- * List of Locations
+ * List of locations
  */
 exports.all = function(req, res) {
   Location.find().sort('-created').populate('user', 'name username').exec(function(err, locations) {

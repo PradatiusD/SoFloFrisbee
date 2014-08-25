@@ -3,7 +3,7 @@
 module.exports = {
   db: 'mongodb://SoFloFrisbee:ultimate@ds035897.mongolab.com:35897/heroku_app28057766',
   app: {
-    name: 'MEAN - A Modern Stack - Production'
+    name: 'SoFloFrisbee'
   },
   facebook: {
     clientID: '648357831926176',

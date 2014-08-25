@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('mean.locations').controller('LocationsController', ['$scope', '$stateParams', '$location', 'Global', 'Locations',
+
   function($scope, $stateParams, $location, Global, Locations) {
     $scope.global = Global;
 
@@ -13,7 +14,8 @@ angular.module('mean.locations').controller('LocationsController', ['$scope', '$
       if (isValid) {
         var location = new Locations({
           name: this.name,
-          address: this.address
+          address: this.address,
+          facebookID: this.facebookID
         });
         location.$save(function(response) {
           $location.path('locations/' + response._id);

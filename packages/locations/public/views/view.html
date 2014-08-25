@@ -1,14 +1,32 @@
 <section data-ng-controller="LocationsController" data-ng-init="findOne()">
-  <span>{{location.created | date:'medium'}}</span> /
-  <span>{{location.user.name}}</span>
-  <h2>{{location.name}}</h2>
-  <div data-ng-if="hasAuthorization(location)">
-    <a class="btn" href="/#!/locations/{{location._id}}/edit">
-      <i class="glyphicon glyphicon-edit"></i>
-    </a>
-    <a class="btn" data-ng-click="remove(location);">
-      <i class="glyphicon glyphicon-trash"></i>
-    </a>
+  <div class="row">
+
+    <aside class="col-md-4">
+      <h2>{{location.name}}</h2>
+      <div data-ng-if="hasAuthorization(location)">
+        <a class="btn" href="/#!/locations/{{location._id}}/edit">
+          <i class="fa fa-edit fa-2x"></i>
+        </a>
+        <a class="btn" data-ng-click="remove(location);">
+          <i class="fa fa-trash-o fa-2x"></i>
+        </a>
+      </div>
+      <p class="lead">{{location.address}}</p>
+      <p>
+          <span>Created by <strong>{{location.user.name}}</strong> {{location.created | date:'medium'}}</span>
+      </p>      
+    </aside>
+
+    <div class="col-md-8">
+      <h3>Status Feed</h3>
+      <hr>
+      <div ng-repeat="fbData in location.facebookData.data">
+        <p class="lead">{{fbData.message}}</p>
+        <p><strong>{{fbData.likes.data.length}} Likes</strong></p>
+        <small>{{fbData.created_time | date:'medium'}}</small>
+        <hr>
+      <div>      
+    </div>
+
   </div>
-  <div>{{location.address}}</div>
 </section>
