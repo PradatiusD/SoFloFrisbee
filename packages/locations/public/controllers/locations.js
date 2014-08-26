@@ -3,6 +3,7 @@
 angular.module('mean.locations').controller('LocationsController', ['$scope', '$stateParams', '$location', 'Global', 'Locations',
 
   function($scope, $stateParams, $location, Global, Locations) {
+
     $scope.global = Global;
 
     $scope.hasAuthorization = function(location) {

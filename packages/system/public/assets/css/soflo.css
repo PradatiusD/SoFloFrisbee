@@ -354,7 +354,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -5776,8 +5776,28 @@ body {
   padding-top: 65px;
 }
 .nav > li > a {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-.fa {
+.fa,
+.purple {
   color: #642f64;
+}
+.circle-date {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #FFF;
+  background: #642f64;
+  border-radius: 100%;
+  height: 80px;
+  width: 80px;
+  margin: 0 auto;
+  padding-top: 0.8em;
+  font-size: 1.3em;
+}
+.circle-date .month {
+  display: block;
+  text-align: center;
+  font-size: 1.2em;
+}
+.angular-google-map-container {
+  height: 700px;
 }
