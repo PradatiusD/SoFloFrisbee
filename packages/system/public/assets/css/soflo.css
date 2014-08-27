@@ -490,7 +490,8 @@ cite {
 .text-justify {
   text-align: justify;
 }
-.text-muted {
+.text-muted,
+.site-footer .fa {
   color: #999999;
 }
 .text-primary {
@@ -5775,6 +5776,10 @@ button.close {
 body {
   padding-top: 65px;
 }
+a {
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
 .nav > li > a {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -5782,11 +5787,14 @@ body {
 .purple {
   color: #642f64;
 }
-.circle-date {
-  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+.circle-date,
+.circle-fa {
   color: #FFF;
   background: #642f64;
   border-radius: 100%;
+}
+.circle-date {
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   height: 80px;
   width: 80px;
   margin: 0 auto;
@@ -5798,6 +5806,41 @@ body {
   text-align: center;
   font-size: 1.2em;
 }
-.angular-google-map-container {
-  height: 700px;
+.circle-fa {
+  height: 19px;
+  width: 19px;
+  padding-top: 3px;
+  text-align: center;
+}
+html,
+body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -74px;
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer,
+.page-wrap:after {
+  height: 74px;
+}
+.site-footer {
+  background: #f5f5f5;
+}
+.site-footer .fa {
+  padding-top: 0.2em;
+}
+.site-footer .fa:hover {
+  color: #642f64;
+  -webkit-transition: color 0.3s ease-out;
+  transition: color 0.3s ease-out;
+}
+.site-footer .lead {
+  padding: 1em 0 0 1em;
+  vertical-align: top;
+  display: inline-block;
 }

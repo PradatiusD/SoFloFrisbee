@@ -3,6 +3,7 @@
 {% include '../includes/head.html' %}
 
 <body>
+  <div class="page-wrap">
     <nav class="navbar navbar-fixed-top navbar-default" data-ng-include="'/system/views/header.html'" data-role="navigation">
     </nav>
     {% if adminEnabled %}
@@ -12,8 +13,11 @@
     {% endif %}
     <section class="container">
         {% block content %}{% endblock %}
-    </section>
-    {% include '../includes/foot.html' %}
+    </section>    
+  </div>
+  <div class="site-footer">
+    {% include '../includes/foot.html' %}    
+  </div>
 </body>
 
 </html>

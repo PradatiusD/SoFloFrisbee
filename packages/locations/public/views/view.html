@@ -3,18 +3,22 @@
     <!-- Left Sidebar -->
     <aside class="col-md-4">
       <h2>{{location.name}}</h2>
-      <div data-ng-if="hasAuthorization(location)">
-        <a class="btn" href="/#!/locations/{{location._id}}/edit">
-          <i class="fa fa-edit fa-2x"></i>
-        </a>
-        <a class="btn" data-ng-click="remove(location);">
-          <i class="fa fa-trash-o fa-2x"></i>
-        </a>
-      </div>
       <p class="lead">{{location.address}}</p>
       <p>
           <span>Created by <strong>{{location.user.name}}</strong> {{location.created | date:'medium'}}</span>
       </p>
+      <div data-ng-if="location.facebookID">
+        <a href="http://facebook.com/groups/{{location.facebookID}}"><i class="fa circle-fa fa-facebook"></i> View Facebook Page</a>
+      </div>
+      <hr>
+      <div data-ng-if="hasAuthorization(location)">
+        <a class="btn" href="/#!/locations/{{location._id}}/edit">
+          <i class="fa fa-edit fa-1x"></i> Edit
+        </a>
+        <a class="btn" data-ng-click="remove(location);">
+          <i class="fa fa-trash-o fa-1x"></i> Delete
+        </a>
+      </div>
     </aside>
 
     <div class="col-md-8">
