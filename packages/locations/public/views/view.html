@@ -26,13 +26,13 @@
       <hr>
       <div ng-repeat="fbData in location.facebookData.data">
         <div class="row">
-          <div class="col-md-2 text-center">
+          <div class="col-md-2 col-xs-4 text-center">
             <p class="circle-date" style="opacity:{{1.0 - ($index * 0.04)}}">
               <span class="month">{{fbData.created_time | date : 'MMM'}}</span>
               <span class"day">{{fbData.created_time | date : 'd'}}<span>
             </p>
           </div>
-          <div class="col-md-10">
+          <div class="col-md-10 col-xs-8">
             <p class="lead">{{fbData.message}}</p>
             <div ng-show="fbData.likes.data.length != null">
               <p class="purple"><strong>{{fbData.likes.data.length}} <i class="fa fa-thumbs-o-up"></i></strong></p>
