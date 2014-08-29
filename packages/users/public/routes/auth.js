@@ -51,6 +51,11 @@ angular.module('mean.users').config(['$stateProvider',
           loggedin: checkLoggedOut
         }
       })
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'users/views/profile.html'
+      })
+
       .state('reset-password', {
         url: '/reset/:tokenId',
         templateUrl: 'users/views/reset-password.html',

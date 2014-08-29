@@ -16,13 +16,12 @@ MeanUser.register(function(app, auth, passport, database) {
   //We enable routing. By default the Package Object is passed to the routes
   MeanUser.routes(app, auth, database, passport);
 
-  //We are adding a link to the main menu for all authenticated users
-  // MeanUser.menus.add({
-  //     title: 'meanUser example page',
-  //     link: 'meanUser example page',
-  //     roles: ['authenticated'],
-  //     menu: 'main'
-  // });
+  // We are adding a link to the main menu for all authenticated users
+  MeanUser.menus.add({
+    title: 'View Profile',
+    link: 'profile',
+    menu: 'auth'
+  });
 
   MeanUser.aggregateAsset('js', 'meanUser.js');
 

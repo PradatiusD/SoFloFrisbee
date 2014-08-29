@@ -21,6 +21,7 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
 
     // Query server for menus and check permissions
     queryMenu('main', defaultMainMenu);
+    queryMenu('auth');
 
     $scope.navCollapsed = false;
 
@@ -33,6 +34,7 @@ angular.module('mean.system').controller('HeaderController', ['$scope', '$rootSc
     $rootScope.$on('loggedin', function() {
 
       queryMenu('main', defaultMainMenu);
+      queryMenu('auth');
 
       $scope.global = {
         authenticated: !! $rootScope.user,

@@ -111,4 +111,19 @@ angular.module('mean.users')
           });
       };
     }
+  ])
+  .controller('ProfileCtrl', ['$scope', '$rootScope', '$http', '$location', '$stateParams',
+    function($scope, $rootScope, $http, $location, $stateParams) {
+      $scope.user = {};
+
+      $http.get('/users/me').success(function (response){
+        $scope.user = response;
+        console.log(response);
+      });
+
+      $scope.addFacebookGroups = function() {
+        window.open('https://www.facebook.com/groups/BrowardUltimate/');
+        window.open('https://www.facebook.com/groups/239781676077680/');
+      };
+    }
   ]);
