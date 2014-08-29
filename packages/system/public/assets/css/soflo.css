@@ -5784,7 +5784,8 @@ a {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .fa,
-.purple {
+.purple,
+.socAuth .fa {
   color: #642f64;
 }
 .circle-date,
@@ -5843,4 +5844,10 @@ body {
   padding: 1em 0 0 1em;
   vertical-align: top;
   display: inline-block;
+}
+.socAuth .fa {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  text-align: center;
 }
