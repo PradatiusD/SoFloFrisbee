@@ -17,7 +17,16 @@ for (var index in window.modules) {
 }
 
 // Default modules
-var modules = ['ngCookies', 'ngResource', 'ui.bootstrap', 'ui.router'];
+var modules = [
+  'ngCookies',
+  'ngResource',
+  'ui.bootstrap',
+  'ui.router',
+  'angulartics',
+  'angulartics.google.analytics',
+  'google-maps'
+];
+
 modules = modules.concat(packageModules);
 
 // Combined modules

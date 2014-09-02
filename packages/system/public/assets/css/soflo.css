@@ -5851,3 +5851,6 @@ body {
   height: 80px;
   text-align: center;
 }
+.angular-google-map-container {
+  height: 400px;
+}

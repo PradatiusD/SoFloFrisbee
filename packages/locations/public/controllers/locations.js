@@ -6,6 +6,14 @@ angular.module('mean.locations').controller('LocationsController', ['$scope', '$
 
     $scope.global = Global;
 
+    $scope.map = {
+      center: {
+        latitude: 45,
+        longitude: -73
+      },
+      zoom: 8
+    };
+
     $scope.hasAuthorization = function(location) {
       if (!location || !location.user) return false;
       return $scope.global.isAdmin || location.user._id === $scope.global.user._id;
