@@ -18,11 +18,6 @@ Locations.register(function(app, auth, database) {
   //We enable routing. By default the Package Object is passed to the routes
   Locations.routes(app, auth, database);
 
-  Locations.menus.add({
-    'title': 'Locations',
-    'link': 'all locations'
-  });
-
   // We are adding a link to the main menu for all authenticated users
   
   Locations.menus.add({
@@ -30,6 +25,25 @@ Locations.register(function(app, auth, database) {
     'title': 'Add New Location',
     'link': 'create location'
   });
+
+  // Adding about page
+  Locations.menus.add({
+    'title': 'About',
+    'link': 'about'
+  });
+
+  // Adding about page
+  Locations.menus.add({
+    'title': 'High School',
+    'link': 'youth'
+  });
+
+  // Adding about page
+  Locations.menus.add({
+    'title': 'Broward League',
+    'link': 'league'
+  });
+
 
   Locations.aggregateAsset('js', 'test.js', {
     group: 'footer',

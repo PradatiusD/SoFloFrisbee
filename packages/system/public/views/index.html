@@ -1,48 +1,51 @@
-<section data-ng-controller="IndexController">
-  <div mean-token="'home-default'">
-  	<div class="row">
-	  	<div class="col-sm-12">
-		  	<h1>Welcome to SoFloFrisbee.co</h1>
-		  	<hr>
-		  	<p class="lead">This project is still way in development.  The ultimate goal of the project will be to have a one stop shop to know and participate with all the local frisbee in South Florida, all being done automatically by the application.</p>
-		  	<p class="lead">The planned features are:</p>
-	  	</div>  		
-  	</div>
-  	<br>
-  	<div class="row">
-  		<div class="col-sm-4 text-center">
-  			<i class="fa fa-5x fa-users"></i>
-  			<h3>Find Local Frisbee</h3>
-  			<p>Say when you're available & find by zip code, and be able to easily add yourself to the ultimate groups that work for you.</p>
-  		</div>
-  		<div class="col-sm-4 text-center">
-  			<i class="fa fa-5x fa-child"></i>
-  			<h3>Explore Tournaments</h3>
-  			<p>Have an easy place to access and find information on the many tournaments happening in the future.</p>
-  		</div>
-  		<div class="col-sm-4 text-center">
-  			<i class="fa fa-5x fa-comment"></i>
-  			<h3>Talk to teams</h3>
-  			<p>Get the contact information for college, masters, and youth teams in the local area.</p>
-  		</div>
-  	</div>
-  	<br>
-  	<div class="row">
-  		<div class="col-sm-4 text-center">
-  			<i class="fa fa-5x fa-cogs"></i>
-  			<h3>Done Automatically</h3>
-  			<p>This app will consume facebook page, text message, and email data automatically from all the pickup groups so no one has to spend time posting on this platform.</p>
-  		</div>
-  		<div class="col-sm-4 text-center">
-  			<i class="fa fa-5x fa-google"></i>
-  			<h3>Integrate to Google Calendar</h3>
-  			<p>Goal will be to parse all the data and let you be able to just add pickup groups to your calendar (and you can find out if they change times)</p>
-  		</div>
-  		<div class="col-sm-4 text-center">
-  			<i class="fa fa-5x fa-bullhorn"></i>
-  			<h3>Whatever you think!</h3>
-  			<p>This is a project meant to serve a community of awesome people.  Please let us know what you would like to fix by adding an issue on the <strong><a href="https://github.com/PradatiusD/SoFloFrisbee/issues">GitHub project</a></strong></p>
-  		</div>
-  	</div>
+<section data-ng-controller="LocationsController" data-ng-init="find()">
+  <div class="alert alert-info" ng-hide="hideAlert">
+    <strong>Please wait</strong>.  The app is making all the calls to database and facebook to get you your results.
   </div>
+  <div class="row">
+    <h1>Current Ultimate Groups</h1>
+    <hr>
+
+    <aside class="col-md-4">
+      <h3>Latest Comment</h3>
+      <div class="well">
+        <p class="lead">{{latestPost.message}}</p>
+        <p class="purple text-small">
+          Posted by {{latestPost.from.name}}<br>
+          <small class="text-muted">{{latestPost.updated_time | date: 'MMM d, h:mma'}}</small>
+        </p>
+        <div class="text-right">
+          <small>
+            <a href="http://facebook.com/{{latestPost.id}}" target="_blank"><i class="fa fa-globe">  View Link</i></a>
+          </small>
+        </div>
+      </div>
+    </aside>
+
+    <section class="col-md-8">
+      <ul class="locations list-unstyled">
+        <li data-ng-repeat="location in location">
+          <h3>
+            <a data-ng-href="#!/locations/{{location._id}}">{{location.name}}</a>
+            <span data-ng-if="hasAuthorization(location)">
+              <a class="btn" href="/#!/locations/{{location._id}}/edit">
+                <i class="fa fa-edit fa-lg"></i>
+              </a>
+              <a class="btn" data-ng-click="remove(location);">
+                <i class="fa fa-trash-o fa-lg"></i>
+              </a>
+            </span>
+          </h3>
+          <p class="lead">{{location.address}}</p>
+          <hr>
+        </li>
+        <li>
+          <h4>Looking for more?</h4>
+          <p>If you create <a href="#!/auth/register">an account with Facebook</a> <em ng-if="global.authenticated == 1">(you will have to <a href="/logout">log out</a> and register the new account)</em> and visit your profile page, you'll be able to click a button to ask to join the remaining closed groups on Facebook.</p>
+        </li>
+      </ul>
+      <h1 data-ng-hide="!locations || locations.length">No locations yet. <br> Why don't you <a href="/#!/locations/create">Create One</a>?</h1>    
+    </div>      
+  </section>
+
 </section>

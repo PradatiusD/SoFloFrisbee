@@ -25,10 +25,6 @@ angular.module('mean.locations').config(['$stateProvider',
 
     // states for my app
     $stateProvider
-      .state('all locations', {
-        url: '/locations',
-        templateUrl: 'locations/views/list.html',
-      })
       .state('create location', {
         url: '/locations/create',
         templateUrl: 'locations/views/create.html',
@@ -43,9 +39,25 @@ angular.module('mean.locations').config(['$stateProvider',
           loggedin: checkLoggedin
         }
       })
+
       .state('location by id', {
         url: '/locations/:locationId',
         templateUrl: 'locations/views/view.html'
+      })
+
+      .state('about', {
+        url: '/about',
+        templateUrl: 'locations/views/about.html'
+      })
+
+      .state('youth', {
+        url: '/youth',
+        templateUrl: 'locations/views/youth.html'
+      })
+
+      .state('league', {
+        url: '/league',
+        templateUrl: 'locations/views/league.html'
       });
   }
 ]);
