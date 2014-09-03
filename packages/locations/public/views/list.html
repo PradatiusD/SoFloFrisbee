@@ -1,26 +1,48 @@
 <section data-ng-controller="LocationsController" data-ng-init="find()">
-  <h1>Current Ultimate Groups</h1>
-  <hr>
-  <ul class="locations list-unstyled">
-    <li data-ng-repeat="location in location">
-      <h3>
-        <a data-ng-href="#!/locations/{{location._id}}">{{location.name}}</a>
-        <span data-ng-if="hasAuthorization(location)">
-          <a class="btn" href="/#!/locations/{{location._id}}/edit">
-            <i class="fa fa-edit fa-lg"></i>
-          </a>
-          <a class="btn" data-ng-click="remove(location);">
-            <i class="fa fa-trash-o fa-lg"></i>
-          </a>
-        </span>
-      </h3>
-      <p class="lead">{{location.address}}</p>
-      <hr>
-    </li>
-    <li>
-      <h4>Looking for more?</h4>
-      <p>If you create <a href="#!/auth/register">an account with Facebook</a> <em ng-if="global.authenticated == 1">(you will have to <a href="/logout">log out</a> and register the new account)</em> and visit your profile page, you'll be able to click a button to ask to join the remaining closed groups on Facebook.</p>
-    </li>
-  </ul>
-  <h1 data-ng-hide="!locations || locations.length">No locations yet. <br> Why don't you <a href="/#!/locations/create">Create One</a>?</h1>
+  <div class="row">
+    <h1>Current Ultimate Groups</h1>
+    <hr>
+
+    <aside class="col-md-4">
+      <h3>Latest Comment</h3>
+      <div class="well">
+        <p class="lead">{{latestPost.message}}</p>
+        <p class="purple text-small">
+          Posted by {{latestPost.from.name}}<br>
+          <small class="text-muted">{{latestPost.updated_time | date: 'MMM d, h:mma'}}</small>
+        </p>
+        <div class="text-right">
+          <small>
+            <a href="http://facebook.com/{{latestPost.id}}" target="_blank"><i class="fa fa-globe">  View Link</i></a>
+          </small>
+        </div>
+      </div>
+    </aside>
+
+    <section class="col-md-8">
+      <ul class="locations list-unstyled">
+        <li data-ng-repeat="location in location">
+          <h3>
+            <a data-ng-href="#!/locations/{{location._id}}">{{location.name}}</a>
+            <span data-ng-if="hasAuthorization(location)">
+              <a class="btn" href="/#!/locations/{{location._id}}/edit">
+                <i class="fa fa-edit fa-lg"></i>
+              </a>
+              <a class="btn" data-ng-click="remove(location);">
+                <i class="fa fa-trash-o fa-lg"></i>
+              </a>
+            </span>
+          </h3>
+          <p class="lead">{{location.address}}</p>
+          <hr>
+        </li>
+        <li>
+          <h4>Looking for more?</h4>
+          <p>If you create <a href="#!/auth/register">an account with Facebook</a> <em ng-if="global.authenticated == 1">(you will have to <a href="/logout">log out</a> and register the new account)</em> and visit your profile page, you'll be able to click a button to ask to join the remaining closed groups on Facebook.</p>
+        </li>
+      </ul>
+      <h1 data-ng-hide="!locations || locations.length">No locations yet. <br> Why don't you <a href="/#!/locations/create">Create One</a>?</h1>    
+    </div>      
+  </section>
+
 </section>

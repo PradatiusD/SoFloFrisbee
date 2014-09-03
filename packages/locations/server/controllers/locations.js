@@ -7,6 +7,7 @@
 var mongoose = require('mongoose');
 var Location = mongoose.model('Location');
 var _        = require('lodash');
+var fbHelper = require('./facebook-helper');
 
 /**
  * Find location by id
@@ -91,6 +92,14 @@ exports.all = function(req, res) {
         error: 'Cannot list the locations'
       });
     }
-    res.json(locations);
+
+    // Also get the latest post
+    fbHelper.getLatestPostfromPages(locations, function (latestPost){
+
+      // Add it to the array for now
+      locations.push(latestPost);
+
+      res.json(locations);
+    });
   });
 };
