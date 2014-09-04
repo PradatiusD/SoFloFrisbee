@@ -13,7 +13,7 @@
           <p class="lead" ng-bind-html="latestPost.message | linky:'_blank'"></p>
           <p class="purple text-small">
             Posted by {{latestPost.from.name}}<br>
-            <strong class="small">On {{latestPost.to.data[0].name}}</strong><br>
+            <strong class="small"><span style="font-weight:normal;">On</span> {{latestPost.to.data[0].name}}</strong><br>
             <small class="text-muted">{{latestPost.updated_time | date: 'MMM d, h:mma'}}</small>            
           </p>
           <div class="text-right">
@@ -26,6 +26,7 @@
     </aside>
 
     <section class="col-md-8">
+      <h3>Pickup Groups</h3>
       <ul class="locations list-unstyled">
         <li data-ng-repeat="location in location">
           <h3>
