@@ -33,7 +33,7 @@
             </p>
           </div>
           <div class="col-md-10 col-xs-8">
-            <p class="lead">{{fbData.message}}</p>
+            <p class="lead" ng-bind-html="fbData.message | linky:'_blank'"></p>
             <div ng-show="fbData.likes.data.length != null">
               <p class="purple"><strong>{{fbData.likes.data.length}} <i class="fa fa-thumbs-o-up"></i></strong></p>
             </div>

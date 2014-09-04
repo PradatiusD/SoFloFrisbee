@@ -5851,6 +5851,12 @@ body {
   height: 80px;
   text-align: center;
 }
+.latestPosts .lead {
+  word-wrap: break-word;
+}
+.latestPosts .lead a {
+  color: #642f64;
+}
 .angular-google-map-container {
   height: 400px;
 }

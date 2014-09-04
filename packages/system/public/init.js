@@ -24,7 +24,8 @@ var modules = [
   'ui.router',
   'angulartics',
   'angulartics.google.analytics',
-  'google-maps'
+  'google-maps',
+  'ngSanitize',
 ];
 
 modules = modules.concat(packageModules);

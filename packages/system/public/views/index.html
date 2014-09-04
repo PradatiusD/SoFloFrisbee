@@ -7,18 +7,21 @@
     <hr>
 
     <aside class="col-md-4">
-      <h3>Latest Comment</h3>
-      <div class="well">
-        <p class="lead">{{latestPost.message}}</p>
-        <p class="purple text-small">
-          Posted by {{latestPost.from.name}}<br>
-          <small class="text-muted">{{latestPost.updated_time | date: 'MMM d, h:mma'}}</small>
-        </p>
-        <div class="text-right">
-          <small>
-            <a href="http://facebook.com/{{latestPost.id}}" target="_blank"><i class="fa fa-globe">  View Link</i></a>
-          </small>
-        </div>
+      <h3>Latest Comments</h3>
+      <div ng-repeat="latestPost in latestPosts" class="latestPosts">
+        <div class="well">
+          <p class="lead" ng-bind-html="latestPost.message | linky:'_blank'"></p>
+          <p class="purple text-small">
+            Posted by {{latestPost.from.name}}<br>
+            <strong class="small">On {{latestPost.to.data[0].name}}</strong><br>
+            <small class="text-muted">{{latestPost.updated_time | date: 'MMM d, h:mma'}}</small>            
+          </p>
+          <div class="text-right">
+            <small>
+              <a href="http://facebook.com/{{latestPost.id}}" target="_blank"><i class="fa fa-globe">  View Post</i></a>
+            </small>
+          </div>
+        </div>        
       </div>
     </aside>
 

@@ -51,11 +51,26 @@ exports.getLatestPostfromPages = function (locations, callback) {
 
     posts = _.flatten(posts, true);
 
-    var latestPost = _.max(posts, function(post){
+    var latestPosts = _.sortBy(posts, function(post){
       return Date.parse(post.updated_time);
     });
 
-    callback(latestPost);
+    callback(latestPosts.slice(0,3));
 
   });
+};
+
+exports.getFeed = function (err, data, callback) {
+
+  FB.api(data.facebookID + '/feed', function (fbRes) {
+    
+    if(!fbRes || fbRes.error) {
+      console.log(!fbRes ? 'error occurred' : fbRes.error);
+      return;
+    }
+    
+    data.facebookData = fbRes;
+    callback(err, data);
+  });
+
 };

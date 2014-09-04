@@ -94,10 +94,10 @@ exports.all = function(req, res) {
     }
 
     // Also get the latest post
-    fbHelper.getLatestPostfromPages(locations, function (latestPost){
+    fbHelper.getLatestPostfromPages(locations, function (latestPosts){
 
-      // Add it to the array for now
-      locations.push(latestPost);
+      // Add this array to the array for now
+      locations.push(latestPosts);
 
       res.json(locations);
     });

@@ -71,7 +71,7 @@ angular.module('mean.locations').controller('LocationsController', ['$scope', '$
 
     $scope.find = function() {
       Locations.query(function(data) {
-        $scope.latestPost = data.pop();
+        $scope.latestPosts = data.pop();
         $scope.location   = data;
         $scope.hideAlert  = true;
       });

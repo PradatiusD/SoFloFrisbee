@@ -5,9 +5,7 @@
  */
 var mongoose = require('mongoose');
 var Schema   = mongoose.Schema;
-var FB       = require('fb');
-
-FB.setAccessToken('648357831926176|gJdv17OllqcvxsjimLp9w2IA7oU');
+var fbHelper = require('./../controllers/facebook-helper');
 
 
 /**
@@ -67,18 +65,7 @@ LocationSchema.statics.load = function(id, cb) {
   }).populate('user', 'name username').exec(function(err, data) {
 
     if (data.facebookID) {
-  
-      FB.api(data.facebookID + '/feed', function (fbRes) {
-        
-        if(!fbRes || fbRes.error) {
-          console.log(!fbRes ? 'error occurred' : fbRes.error);
-          return;
-        }
-        
-        data.facebookData = fbRes;
-        cb(err, data);
-      });
-
+      fbHelper.getFeed(err, data, cb);
     }
 
     else {
